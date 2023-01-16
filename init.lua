@@ -51,7 +51,8 @@ require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+  --use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+  use 'HerringtonDarkholme/yats.vim'
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -105,6 +106,12 @@ vim.wo.relativenumber = true
 
 -- Make cursor line default
 vim.wo.cursorline = true
+
+-- tab width
+local TAB_WIDTH = 4
+vim.bo.tabstop = TAB_WIDTH
+vim.bo.shiftwidth = TAB_WIDTH
+vim.bo.expandtab = true
 
 -- Enable mouse mode
 --vim.o.mouse = 'a'
@@ -313,7 +320,7 @@ vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste without losing what is 
 vim.keymap.set('n', '<leader>w', ':silent w | bd<CR>', { desc = 'Save and close current bufer' })
 
 -- Diff vertically with remote file
-vim.keymap.set('n', '<leader>dv', ':silent w | bd<CR>', { desc = '[D]iff [v]ertically with remote file' })
+vim.keymap.set('n', '<leader>dv', ':vertical diffs scp://[USER]@[HOST]//var/www/html/%', { desc = '[D]iff [v]ertically with remote file' })
 
 -- Upload file to remote server
 vim.keymap.set('n', '<leader>uf', ':!scp % [USER]@[SERVER]:/var/www/html/%', { desc = '[U]pload [f]ile to remote server' })

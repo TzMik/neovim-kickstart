@@ -194,10 +194,10 @@ _G.packer_plugins = {
     path = "/home/mikel/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
     url = "https://github.com/tpope/vim-rhubarb"
   },
-  ["vim-sleuth"] = {
+  ["yats.vim"] = {
     loaded = true,
-    path = "/home/mikel/.local/share/nvim/site/pack/packer/start/vim-sleuth",
-    url = "https://github.com/tpope/vim-sleuth"
+    path = "/home/mikel/.local/share/nvim/site/pack/packer/start/yats.vim",
+    url = "https://github.com/HerringtonDarkholme/yats.vim"
   }
 }
 
